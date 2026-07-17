@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fintech-frontend
+spec:
+  selector:
+    matchLabels:
+      app: fintech-frontend
+  template:
+    metadata:
+      labels:
+        app: fintech-frontend
+    spec:
+      containers:
+      - name: fintech-frontend
+        image: docker.io/vishalbagdi/fintech-frontend
+        ports:
+        - containerPort: 9000
+        env:
+        - name: BACKEND_URL
+          value: http://fintech-backend.fintech.svc.cluster.local
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fintech-frontend
+spec:
+  selector:
+    app: fintech-frontend
+  ports:
+  - port: 80
+    targetPort: 9000
+        
