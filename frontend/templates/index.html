@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintech</title>
+</head>
+<body>
+  <p>hey this is frontend </p>
+  {% for name in data %}
+    <p>{{ name }}</p>
+  {% endfor %}
+  # Environment variables from backend using jinja2
+  # print value using a loop from dict using jinja2
+
+  {% for key, value in env.items() %}
+    <p>{{ key }}: {{ value }}</p>
+  {% endfor %}
+<style>
+    body {
+        background-color: #141414;
+        color: yellow;
+    }
+</style>
+</body>
+</html>
